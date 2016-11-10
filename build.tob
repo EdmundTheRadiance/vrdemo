@@ -1,0 +1,40 @@
+{
+	homeDir : "../..",
+	debug: true,
+	argument : {
+		img : "http://qzonestyle.gtimg.cn/open/mobile/vrdemo/"
+	},
+	building : [{
+		source : ["examples/demo1.html"],
+		output : [{
+			path : "/build/vrdemo/demo1.html",
+			compress : true,
+			preTmpl: true
+		}]
+	}, {
+		source : ["examples/demo2.html"],
+		output : [{
+			path : "/build/vrdemo/demo2.html",
+			compress : true,
+			preTmpl: true
+		}]
+	}, {
+		source : ["examples/hongbaoyu.html"],
+		output : [{
+			path : "/build/vrdemo/hongbaoyu.html",
+			compress : true,
+			preTmpl: true
+		}]
+	}],
+	deploying : [{
+		source : "img",
+		target : "/build/vrdemo/"
+	},{
+		type: "CUSTOM",
+		provider: "com.tencent.builder.deployer.custom.StaticDevDeployer",
+		path: [{
+			source: "../../build/vrdemo",
+			target: "/open/mobile/vrdemo"
+		}]
+	}]
+}
